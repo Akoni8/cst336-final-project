@@ -1,0 +1,21 @@
+Minimum requirements:
+    There is no partial credit for the minimum requirements.
+    If any of the following elements is missing, you won't get the 20pts.
+        Documentation must include User Story, Mockup, Database Design (E/R Diagram) and Screenshots	20pts
+        Project must use at least three database tables
+        The combined database tables must have at least ten fields
+        One of the database table must have at least 20 records
+
+
+Feature requirements:
+    There is a "user" section in which anyone can search and filter data without having to login	
+    10pts
+    Administrators can login and logout from the system	10pts
+    Administrators can update content of at least one table (using pre-populated data in the form)	10pts
+    Administrators can insert new records in at least one table	10pts
+    Administrators can delete records	10pts
+    Administrators can generate at least three reports, which use aggregate functions (e.g., average price of all products in the table)	10pts
+    Project uses at least one AJAX call	10ptsf
+    
+    
+Last modified: Tuesday, 22 August 2017, 9:09 PM
