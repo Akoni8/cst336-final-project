@@ -52,21 +52,30 @@ $dbConn = getDatabaseConnection("heroku_ec49987c2231ba0");
 
         <div class="container">
             <!-- <button class="btn btn-primary" onclick="myAjax()">Click here</button>-->
-            <strong>Search:</strong>  <input type="text" name="typedtext" placeholder="Search" value="<?=$_GET['typedtext']?>"/>
-            <span class="Filter"><strong>Sort - </strong></span>
-            <select name = "sorttype">
-                <option value="students">Students</option>
-                <option value="courses">Courses</option>
-                <option value="instructors">Instructors</option>
-            </select>
-            <select name = "sortorder">
-                <option value="ascending">Ascending</option>
-                <option value="descending">Descending</option>
-            </select>
+       
+            <form method="post">
+                <strong>Search:</strong>  <input type="text" name="typedtext" placeholder="Search" value="<?=$_GET['typedtext']?>"/>
+                <span class="Filter"><strong>Sort - </strong></span>
+                <select name = "sort">
+                    <option value="">Select one</option>
+                    <option value="students">Students</option>
+                    <option value="courses">Courses</option>
+                    <option value="instructors">Instructors</option>
+                </select>
+                <select name = "sortorder">
+                    <option value="">Select one</option>
+                    <option value="ascending">Ascending</option>
+                    <option value="descending">Descending</option>
+                </select>
+                <input class="btn btn-primary btn-sm" type="submit" name="submit" value="Submit">
+            </form>
+            
             <br/>
             <?=showStudents()?>
             <?=showCourses()?>
             <?=showInstructors()?>
+            <?=filter()?>
+            
         </div>
         
         

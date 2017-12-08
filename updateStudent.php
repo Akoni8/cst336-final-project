@@ -16,7 +16,7 @@ function getStudentInfo() {
 }
 
 
- if (isset($_GET['updatestudent'])) { //checks whether admin has submitted form.
+ if (isset($_GET['updateStudent'])) { //checks whether admin has submitted form.
      
      //echo "Form has been submitted!";
      
@@ -24,6 +24,7 @@ function getStudentInfo() {
                 SET firstName = :fName,
                 lastName  = :lName,
                 gender = :gender,
+                deptId = :deptId
                 WHERE studentId = :id";
      $np = array();
      
