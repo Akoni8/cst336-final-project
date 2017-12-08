@@ -24,6 +24,7 @@ function getStudentInfo() {
                 SET firstName = :fName,
                 lastName  = :lName,
                 gender = :gender,
+                email = :email,
                 deptId = :deptId
                 WHERE studentId = :id";
      $np = array();
@@ -32,6 +33,7 @@ function getStudentInfo() {
      $np[':fName'] = $_GET['firstName'];
      $np[':lName'] = $_GET['lastName'];
      $np[':gender'] = $_GET['gender'];
+     $np[':email'] = $_GET['email'];
      $np[':deptId'] = $_GET['deptId'];
      
      $stmt = $dbConn->prepare($sql);
@@ -49,6 +51,34 @@ function getStudentInfo() {
         <title> Update student </title>
         <link rel="stylesheet" href="css/styles.css" type="text/css" />
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+        <script>
+            function validateEmail() {
+            $.ajax({
+                type: "GET",
+                url: "emailLookUp.php",
+                dataType: "json",
+                data: {
+                    'email': $('#email').val(),
+                    'action': 'validate-email'
+                },
+                success: function(data,status) {
+                    debugger;
+                    if (data.length>0) {
+                        $('#email-valid').html("Email is not available");
+                        $('#email-valid').css("color", "red");
+                    } else {
+                        $('#email-valid').html("Email is available"); 
+                        $('#email-valid').css("color", "green");
+                    }
+                  },
+                complete: function(data,status) { 
+                    //optional, used for debugging purposes
+                    //alert(status);
+                }
+            });
+                }
+        </script>
     </head>
     <body>
         <div id="container">
@@ -61,7 +91,8 @@ function getStudentInfo() {
                 <br/>
                 Gender: <input type= "text" name ="gender" value="<?=$studentInfo['gender']?>"/>
                 <br/>
-             
+                Email: <input type= "email" name ="email" id="email" onchange="validateEmail();" value="<?=$studentInfo['email']?>"/><br/><span id="email-valid"></span>
+                <br>
                 Department: 
                 <select name="deptId">
                     <option value="" > - Select One - </option>
