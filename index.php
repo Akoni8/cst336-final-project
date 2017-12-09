@@ -41,6 +41,7 @@ $dbConn = getDatabaseConnection("heroku_ec49987c2231ba0");
         		        <span class="icon-bar"></span>
         		     </button>
         			<a href="index.php" class="navbar-brand">Home</a>
+        			<a href="admin.php" class="navbar-brand">Admin</a>
         		</div>
         		<div class="collapse navbar-collapse" id="bs-nav-demo">
         			<ul class="nav navbar-nav navbar-right">
@@ -73,9 +74,7 @@ $dbConn = getDatabaseConnection("heroku_ec49987c2231ba0");
             <br/>
             <?=showStudents()?>
             <?=showCourses()?>
-            <?=showInstructors()?>
-            <?=filter()?>
-            
+            <?=showInstructors()?>  
         </div>
         
         

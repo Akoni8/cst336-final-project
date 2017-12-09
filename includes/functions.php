@@ -1,7 +1,6 @@
 <?php
 function showStudents() {
     global $dbConn;
-    // echo "<div>";
             $sql = "SELECT * FROM m_students";
              if (!empty($_POST['typedtext'])) {
                   $sql = $sql. " WHERE firstName LIKE '%".$_POST['typedtext']."%'". " OR lastName LIKE '%".$_POST['typedtext']."%' ";
@@ -26,12 +25,10 @@ function showStudents() {
     	        echo "<td>".$record['firstName']." </td><td>".$record['lastName'] ."<td />";
              }
              echo "</table>";
-    // echo "</div>";
 }
 
 function showCourses() {
 global $dbConn;
-    // echo "<div>";
             $sql = "SELECT * FROM courses";
             if (!empty($_POST['typedtext'])) {
                   $sql = $sql. " WHERE courseName LIKE '%".$_POST['typedtext']."%' ";
@@ -55,12 +52,10 @@ global $dbConn;
     	        echo "<td> ".$record['courseName'] ."</td>";
              }
              echo "</table>";
-    // echo "</div>";
 }
 
 function showInstructors() {
     global $dbConn;
-    // echo "<div>";
             $sql = "SELECT * FROM instructors";
             if (!empty($_POST['typedtext'])) {
                   $sql = $sql. " WHERE instructorFirst LIKE '%".$_POST['typedtext']."%' OR instructorLast LIKE '%".$_POST['typedtext']."%' ";
@@ -85,7 +80,50 @@ function showInstructors() {
     	        echo "<td>".$record['instructorFirst']." ".$record['instructorLast'] ."</td>";
              }
              echo "</table>";
-    // echo "</div>";
+}
+
+function countStudents(){
+    global $dbConn;
+    $sql = "SELECT COUNT(studentId) numStudents FROM m_students";
+    $stmt = $dbConn->query($sql);
+    $results = $stmt->fetchAll();
+    
+    foreach ($results as $record) {
+    	        echo "Number of students: ".$record['numStudents'];
+             }
+}
+
+function countCourses(){
+    global $dbConn;
+    $sql = "SELECT COUNT(courseId) numCourses FROM courses";
+    $stmt = $dbConn->query($sql);
+    $results = $stmt->fetchAll();
+    
+        foreach ($results as $record) {
+    	        echo "Number of courses: ".$record['numCourses'];
+             }
+}
+
+function countInstructors(){
+    global $dbConn;
+    $sql = "SELECT COUNT(instructorId) numInstructors FROM instructors";
+    $stmt = $dbConn->query($sql);
+    $results = $stmt->fetchAll();
+    
+       foreach ($results as $record) {
+    	        echo "Number of instructors: ".$record['numInstructors'];
+             }
+}
+
+function coursesInDepartment(){
+     global $dbConn;
+    $sql = "SELECT COUNT(id) num, name, college FROM Departments d JOIN courses c ON d.id = c.deptId  GROUP BY id";
+    $stmt = $dbConn->query($sql);
+    $results = $stmt->fetchAll();
+    
+       foreach ($results as $record) {
+    	        echo "Number of courses in ". $record['name']. " ".$record['college'].": ".$record['num']."<br/>";
+             }
 }
 
 ?>
