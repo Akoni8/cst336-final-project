@@ -84,7 +84,7 @@ if (isset($_GET['addCourse'])) {  //the add form has been submitted
                     ?>
                 </select>
                 <br />
-                <input class="btn btn-primary" type="submit" value="Add Course" name="addCourse">
+                <input class="btn btn-primary" class="btn btn-success" type="submit" value="Add Course" name="addCourse">
             </form>
         </div>
         

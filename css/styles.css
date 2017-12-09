@@ -1,17 +1,19 @@
 body {
-    font-family: futura;
-    /*background-image: url("data.jpg");*/
+    font-family: futura !important;
     background-color: gray;
     background-repeat: no-repeat;
     background-size: cover;
     text-shadow: 0 0 10px rgba(255,255,255,1);
-}
+    background: #ECE9E6;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-#container {
+}                                
+
+#container, .container {
     text-align: center;
     margin: 0 auto;
     color: black;
-    font-family: futura;
     font-size: 1.2em;
     text-shadow: 0 0 10px rgba(255,255,255,1);
     padding: 15px;
@@ -38,6 +40,11 @@ p {
 
 table, th, td {
   text-align:left;
+  font-weight:600;
+}
+
+th {
+    font-size: 1.1em;
 }
 
 thead {
@@ -45,11 +52,6 @@ thead {
     font-size:1.2em;
 }
 
-
-#item {
-    font-size: 1.2em;
-    font-weight: 600;
-}
 
 #t1, #t2, #t3 {
     width: 33.3%;
@@ -70,6 +72,17 @@ thead {
 
 .reports {
      font-size: 1.2em;
-     color: blue;
      font-weight: 700;
+}
+
+nav {
+    font-weight: 700;
+    font-size: 1.1em;
+    color: black;
+    background: #83a4d4;  /* fallback for old browsers */
+    background: #8e9eab;  /* fallback for old browsers */  /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(left, #eef2f3, #8e9eab);
+    background: -moz-linear-gradient(left, #eef2f3, #8e9eab);
+    background: -o-linear-gradient(left, #eef2f3, #8e9eab);
+    background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }

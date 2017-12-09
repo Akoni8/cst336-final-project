@@ -124,7 +124,7 @@ function getStudentInfo() {
                     <option value="Biology"  <?=($studentInfo['deptId']=='6')?" selected":"" ?>  >Biology</option>
                 </select>
                     <br />
-                    <input type="submit" value="Update Student" name="updateStudent">
+                    <input type="submit"class="btn btn-success" value="Update Student" name="updateStudent">
             </form>
         </div>
     </body>

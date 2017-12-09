@@ -38,7 +38,6 @@ function instructorList() {
    
     return $records;
 }
-
 ?>
 
 <!DOCTYPE html>

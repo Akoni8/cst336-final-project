@@ -51,8 +51,9 @@ $dbConn = getDatabaseConnection("heroku_ec49987c2231ba0");
         	</div>
         </nav>
 
-        <div class="container">
-            <!-- <button class="btn btn-primary" onclick="myAjax()">Click here</button>-->
+        <div class="container center">
+            <h1>CMS</h1>
+            <hr id="line">
        
             <form method="post">
                 <strong>Search:</strong>  <input type="text" name="typedtext" placeholder="Search" value="<?=$_GET['typedtext']?>"/>
